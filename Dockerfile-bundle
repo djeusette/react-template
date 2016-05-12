@@ -1,0 +1,11 @@
+FROM node:5.7-slim
+
+ENV HOME /home/app
+WORKDIR $HOME
+
+RUN chown -R nobody:nogroup $HOME
+USER nobody
+
+ADD package.json $HOME/
+
+CMD ["npm", "install"]
